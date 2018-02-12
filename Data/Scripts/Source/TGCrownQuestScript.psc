@@ -32,6 +32,8 @@ Quest Property pTGCrownQuest Auto
 Quest Property pTG02BQuest Auto
 Quest Property pTGCrownMiscQuest Auto
 
+Actor Property PlayerRef Auto
+
 Function GemCheck()
 
 	if pTGCrownQuest.GetStageDone(20)	;if No Stone Unturned is >= stage 20
@@ -60,31 +62,31 @@ endFunction
 
 Function CleanUp()
 
-	Game.GetPlayer().RemoveItem(pTGCrownGem01.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem02.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem03.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem04.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem05.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem06.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem07.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem08.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem09.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem10.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem11.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem12.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem13.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem14.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem15.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem16.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem17.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem18.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem19.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem20.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem21.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem22.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem23.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrownGem24.GetRef())
-	Game.GetPlayer().RemoveItem(pTGCrown,1)
+	PlayerRef.RemoveItem(pTGCrownGem01.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem02.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem03.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem04.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem05.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem06.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem07.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem08.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem09.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem10.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem11.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem12.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem13.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem14.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem15.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem16.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem17.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem18.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem19.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem20.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem21.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem22.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem23.GetRef())
+	PlayerRef.RemoveItem(pTGCrownGem24.GetRef())
+	PlayerRef.RemoveItem(pTGCrown,1)
 	pTGStand.Enable()
 
 endFunction
