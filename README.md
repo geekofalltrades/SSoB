@@ -11,4 +11,5 @@ which add them, I've also added them as an option.
 
 SSoB is available on Nexus Mods.
 
-[SSoB for Skyrim](https://www.nexusmods.com/skyrim/mods/49056)
+[SSoB for Skyrim Special Edition](https://www.nexusmods.com/skyrimspecialedition/mods/22395)
+[SSoB for Skyrim](https://www.nexusmods.com/skyrim/mods/49056) (not maintained)
