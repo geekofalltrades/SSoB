@@ -32,6 +32,8 @@ Quest Property pTGCrownQuest Auto
 Quest Property pTG02BQuest Auto
 Quest Property pTGCrownMiscQuest Auto
 
+Quest Property DialogueRiftenMaul Auto ;USLEEP 3.0.4 Bug #20077
+
 Actor Property PlayerRef Auto
 
 Function GemCheck()
@@ -39,7 +41,12 @@ Function GemCheck()
 	if pTGCrownQuest.GetStageDone(20) == 0
 		if pTG02BQuest.GetStageDone(40) == 0
 			if pTGCrownMiscQuest.GetStageDone(10) == 0
-				pTGCrownMiscQuest.SetStage(10)
+				;USLEEP 3.0.4 Bug #20077 - Pissed off Maul before finding a gem.
+				if( DialogueRiftenMaul.GetStageDone(35) == 0 ) 
+					pTGCrownMiscQuest.SetStage(10)
+				else
+					pTGCrownMiscQuest.SetStage(20)
+				endif
 				pTGCrownFound.Value += 1
 			elseif pTGCrownMiscQuest.GetStageDone(10) == 1
 				pTGCrownFound.Value += 1
