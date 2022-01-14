@@ -36,25 +36,25 @@ Actor Property PlayerRef Auto
 
 Function GemCheck()
 
-	if pTGCrownQuest.GetStageDone(20)	;if No Stone Unturned is >= stage 20
+	if pTGCrownQuest.GetStageDone(20) == 0
+		if pTG02BQuest.GetStageDone(40) == 0
+			if pTGCrownMiscQuest.GetStageDone(10) == 0
+				pTGCrownMiscQuest.SetStage(10)
+				pTGCrownFound.Value += 1
+			elseif pTGCrownMiscQuest.GetStageDone(10) == 1
+				pTGCrownFound.Value += 1
+			endif
+		elseif pTG02BQuest.GetStageDone(40) == 1
+			if pTGCrownQuest.GetStageDone(10) == 0
+				pTGCrownQuest.SetStage(10)
+				pTGCrownFound.Value += 1
+			elseif pTGCrownQuest.GetStageDone(10) == 1
+				pTGCrownFound.Value += 1
+			endif
+		endif
+	elseif pTGCrownQuest.GetStageDone(20) == 1
 		if ModObjectiveGlobal(1, pTGCrownFound, 20, pTGCrownTotal.value)
 			SetStage(30)
-		endif
-	elseif !pTGCrownQuest.GetStageDone(20)	;if No Stone Unturned isn't >= stage 20
-		if !pTG02BQuest.GetStageDone(40)	;if Meet The Family isn't at stage 40
-			if pTGCrownMiscQuest.GetStageDone(10)	;if the Unusual Gem quest is already started
-				pTGCrownFound.Value += 1	;add a gem to the count of gems found
-			else	;if the Unusual Gem quest hasn't already started
-				pTGCrownMiscQuest.SetStage(10)	;start the unusual gem quest
-				pTGCrownFound.Value += 1	;add a gem to the count of gems found
-			endif
-		elseif pTG02BQuest.GetStageDone(40)	;if Meet The Family is at stage 40
-			if !pTGCrownQuest.GetStageDone(10)	;if No Stone Unturned isn't >= stage 10
-				pTGCrownQuest.SetStage(10)	;set No Stone Unturned to Stage 10
-				pTGCrownFound.Value += 1	;add a gem to the count of gems found
-			else	;if No Stone Unturned is >= stage 10
-				pTGCrownFound.Value += 1	;add a gem to the count of gems found
-			endif
 		endif
 	endif
 
