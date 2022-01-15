@@ -71,7 +71,8 @@ Considerations:
    and messages to complete.
 2. Before collecting any stones, toggle quest markers on and off. Verify that no
    markers appear.
-3. Collect a few stones. Verify that stone activators and the inventory item are
+3. Collect a few stones. DO NOT collect the stone in the Dark Brotherhood
+   Sanctuary. Verify that stone activators and the inventory item are both
    both called "Unusual Gem."
 4. Toggle quest markers on and off. Verify that no markers appear.
 5. Become a full member of the Thieves' Guild:
