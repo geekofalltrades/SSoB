@@ -7,6 +7,15 @@ Quest Property TGCrownQuest Auto
 MiscObject Property TGCrownGemInventory Auto
 Activator Property TGCrownGemActivator Auto
 
+Event OnInit()
+	;if this is a new game, name the stones Unusual Gem. This prevents players
+	;who loaded a game in which the gems had been renamed to Stone of Barenziah,
+	;then quit to the main menu and started a new game, from seeing "Stone of
+	;Barenziah" when they shouldn't.
+	TGCrownGemInventory.SetName("Unusual Gem")
+	TGCrownGemActivator.SetName("Unusual Gem")
+EndEvent
+
 Event OnPlayerLoadGame()
 	;if No Stone Unturned has progressed past the point where Unusual Gems should now be Stones of Barenziah and isn't completed
 	if TGCrownQuest.GetStageDone(20) && !TGCrownQuest.GetStageDone(200)
