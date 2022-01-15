@@ -1,8 +1,8 @@
 # Stackable Stones of Barenziah with Optional Quest Markers
 
-Version: 1.0
+Version: 2.0.0
 Author: geekofalltrades
-Released: 2019-01-05 at Skyrim Special Edition Nexus
+Released: 2022-01-15 at Skyrim Special Edition Nexus
 
 Allows Stones of Barenziah to stack normally in your inventory. Because quest
 markers for Stones of Barenziah are fairly popular, and this mod won't be
@@ -19,6 +19,8 @@ set SSoBGemMarkers to 1
 set SSoBGemMarkers to 0
 ```
 
+This mod's plugin is an ESP+FE/ESL-flagged ESP.
+
 ## Requirements
 
 * SKSE
@@ -30,6 +32,9 @@ This mod overhauls the No Stone Unturned quest fairly radically, and so won't be
 compatible with other mods that alter that quest. These include the popular
 Quest Marker and Droppable Gem mods. SSoB should be compatible with any other
 mod.
+
+This mod forwards changes to No Stone Unturned from the Unofficial Skyrim
+Special Edition Patch.
 
 ## Installation
 
