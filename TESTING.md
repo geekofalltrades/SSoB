@@ -13,6 +13,11 @@ The ["No Stone Unturned" UESP page][1] is a fantastic resource for all of this.
   item, but belongs to a class of Creation Kit abstractions called "activators."
   I will refer to the in-world stones as "stone activators" throughout this
   document.
+* reglar-style vs. door-style quest marker: Because I don't know what else to
+  call these. A regular-style quest marker is a plain arrowhead pointing down at
+  a quest object. A door-style quest marker is found on a door when the quest
+  object is through that door, and looks like the same arrowhead, but pointing
+  through a door.
 
 ## Known Issues
 
@@ -40,10 +45,15 @@ the console, but is broken in Anniversary Edition as of 2022-01-09.
 
 ## Testing Methodology
 
-Proceed through each section in order.
+Read each section fully before starting, then proceed through each section in
+order.
 
 Considerations:
 
+* Pay attention to which and how many stones you've collected. The Dark
+  Brotherhood Sanctuary gem has a section devoted to it, so don't collect it
+  before that section. Make sure that there are enough gems left to collect to
+  complete each section.
 * Test toggling quest markers both via the console and via the MCM at least
   once each.
 * Start new characters using Alternate Start: Live Another Life, *not* by
@@ -63,6 +73,12 @@ Considerations:
     * `tdetect`: Turn off enemy AI detection so no enemies notice or attack you.
     * `tcl`: Turn off collision so you can fly through walls and obstacles to
       reach stones more quickly.
+* Skyrim limits how many quest markers it will show in the game world and on the
+  compass, but does not limit how many are shown on the map. I've seen in at
+  least one place that the limit is 16. Since there are 24 stones, not all
+  stones will have quest markers in-world until 8 are collected. If a stone
+  isn't showing a quest marker in-world or on the compass, but it shows a quest
+  marker in the map, then the quest marker is working.
 
 ### Test Quest Marker Activation, Renaming, and Stacking
 
@@ -71,7 +87,7 @@ Considerations:
    and messages to complete.
 2. Before collecting any stones, toggle quest markers on and off. Verify that no
    markers appear.
-3. Collect a few stones. DO NOT collect the stone in the Dark Brotherhood
+3. Collect a few stones. Do not collect the stone in the Dark Brotherhood
    Sanctuary. Verify that stone activators and the inventory item are both
    both called "Unusual Gem."
 4. Toggle quest markers on and off. Verify that no markers appear.
@@ -91,25 +107,47 @@ Considerations:
 9. Toggle quest markers on and off. Verify that they appear when toggled on, and
    disappear when toggled off. At the end of this step, leave quest markers
    *on*.
-10. Collect more (but not all) of the stones. Verify that the stone activators
-    have been renamed to "Stone of Barenziah." Verify that they stack in your
-    inventory. Verify that the quest marker over each stone activator disappears
-    when the stone is collected.
-11. Poise yourself near a stone activator, but _do not collect it_ yet.
+10. Collect more (but not all) of the stones. Do not collect the stone in the
+    Dark Brotherhood Sanctuary. Verify that the stone activators have been
+    renamed to "Stone of Barenziah." Verify that they stack in your inventory.
+    Verify that the quest marker over each stone activator disappears when the
+    stone is collected.
+
+### Test Quest Marker for Dark Brotherhood Stone
+
+1. Verify that a quest marker appears on the Dark Brotherhood Sanctuary door
+   (`coc DarkBrotherhoodSanctuaryExterior`). It is a regular-style quest marker,
+   not a door-style quest marker. This is expected.
+2. Start the Dark Brotherhood questline:
+    1. `setstage DB02 10`
+    2. `player.moveto 1BDE8`
+    3. Kill one of the hostages, then complete Astrid's dialogue.
+3. Return to the Dark Brotherhood Sanctuary exterior. Verify that a quest marker
+   still appears on the door.
+4. Interact with the door using the dialogue option, "Silence, my brother," to
+   enter the sanctuary.
+5. Verify that a quest marker appears on the Stone of Barenziah inside the Dark
+   Brotherhood Sanctuary (should be visible immediately upon entering.)
+6. Leave the Dark Brotherhood Sanctuary. Verify that a quest marker still
+   appears on the door from outside. It will have changed to a door-style quest
+   marker. This is expected.
+7. If the stone inside the Dark Brotherhood Sanctuary is the last one you
+   haven't collected, don't collect it yet.
 
 ### Test Renaming Across Saves and New Games
 
-1. Save your game. I will refer to this as "save A."
-2. Exit to the main menu.
-3. Start a new character with Alternate Start: Live Another Life.
-4. Collect a stone. Verify that the stone activator and the inventory item are
+1. Poise yourself near a stone activator, but _do not collect it_ yet.
+2. Save your game. I will refer to this as "save A."
+3. Exit to the main menu.
+4. Start a new character with Alternate Start: Live Another Life.
+5. Collect a stone. Verify that the stone activator and the inventory item are
    both called "Unusual Gem."
-5. Poise yourself near a stone activator, but _do not collect it_ yet.
-6. Save your game. I will refer to this as "save B."
-7. Load save A. Verify that the stone activator you are next to is named "Stone
+6. Poise yourself near a stone activator, but _do not collect it_ yet.
+7. Save your game. I will refer to this as "save B."
+8. Load save A. Verify that the stone activator you are next to is named "Stone
    of Barenziah." Verify that the stones are named "Stone of Barenziah" in your
    inventory.
-8. Load save B. Verify that the stone activator you are next to is named
+9. Load save B. Verify that the stone activator you are next to is named
    "Unusual Gem." Verify that the stones are named "Unusual Gem" in your
    inventory.
 
